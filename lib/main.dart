@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:unsplash_api/constants/theme.dart';
-import 'package:unsplash_api/cubit/homecubit/home.cubit.dart';
-import 'package:unsplash_api/cubit/homecubit/home.state.dart';
+import 'package:unsplash_api/cubit/img.cubit.dart';
 import 'package:unsplash_api/routes/routes.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<ImageLoadCubit>(create: (context) => ImageLoadCubit())
+        BlocProvider<ImageCubit>(create: (context) => ImageCubit())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
