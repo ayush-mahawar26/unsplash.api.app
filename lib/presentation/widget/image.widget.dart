@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:unsplash_api/constants/colors.dart';
 import 'package:unsplash_api/constants/size_config.dart';
 import 'package:unsplash_api/models/img.model.dart';
+import 'package:unsplash_api/presentation/bookmark.dart';
+import 'package:unsplash_api/presentation/widget/show.mssg.dart';
 
 class ImageWidget extends StatelessWidget {
   ImgModel data;
@@ -70,13 +72,35 @@ class ImageWidget extends StatelessWidget {
                       )
                     ],
                   ),
-                  ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(
-                        CupertinoIcons.bookmark_fill,
-                        size: 12,
-                      ),
-                      label: const Text("Save"))
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(black)),
+                      onPressed: () {
+                        BookmarkPage.bookmarkImage.add(data);
+                        ShowMessage().showSnackbar(
+                            mssg: "Image Added", context: context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.bookmark,
+                              size: 20,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Save",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(color: white),
+                            )
+                          ],
+                        ),
+                      ))
                 ],
               ),
             )

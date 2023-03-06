@@ -11,9 +11,6 @@ class getUnsplashImages {
     Response res = await get(Uri.parse(imageUrl));
 
     Map jsonToMap = await jsonDecode(res.body);
-    Map results = jsonToMap["results"][0];
-    print("alt desc : " + results["alt_description"]);
-    print("likes : " + jsonToMap["results"][0]["likes"].toString());
 
     return jsonToMap;
   }

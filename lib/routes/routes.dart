@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unsplash_api/presentation/bookmark.dart';
 import 'package:unsplash_api/presentation/home.dart';
 
 class AppRoutes {
@@ -6,6 +7,8 @@ class AppRoutes {
     switch (settings.name) {
       case ("/home"):
         return MaterialPageRoute(builder: (context) => HomeScr());
+      case ("/bookmark"):
+        return MaterialPageRoute(builder: (context) => BookmarkPage());
     }
   }
 }

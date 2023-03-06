@@ -19,10 +19,16 @@ class _HomeScrState extends State<HomeScr> {
 
   @override
   Widget build(BuildContext context) {
-
     ImageCubit imageCubit = BlocProvider.of<ImageCubit>(context);
     SizeConfig().init(context);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: black,
+        onPressed: () {
+          Navigator.of(context).pushNamed("/bookmark");
+        },
+        child: const Icon(Icons.bookmark),
+      ),
       appBar: AppBar(
         title: const Text("UnSplash"),
         centerTitle: true,

@@ -9,9 +9,10 @@ class ImageLoadedState extends ImageState {
   List<ImgModel> imgData = [];
   ImageLoadedState(this.results) {
     for (Map i in results) {
-      String? desc = i["description"];
+      String? alt = i["alt_description"];
       imgData.add(ImgModel(i["urls"]["raw"],
-          (desc != null) ? desc : i["alt_description"], i["likes"].toString()));
+          (alt != null) ? alt : i["description"].toString(),
+          i["likes"].toString()));
     }
   }
 }
