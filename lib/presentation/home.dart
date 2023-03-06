@@ -19,6 +19,8 @@ class _HomeScrState extends State<HomeScr> {
 
   @override
   Widget build(BuildContext context) {
+
+    ImageCubit imageCubit = BlocProvider.of<ImageCubit>(context);
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +40,13 @@ class _HomeScrState extends State<HomeScr> {
                     cursorColor: black,
                     decoration: InputDecoration(
                         suffixIcon: InkWell(
-                          onTap: () => {if (searchController.text != "") {}},
+                          onTap: () => {
+                            if (searchController.text.trim() != "")
+                              {
+                                imageCubit.getImageData(
+                                    value: searchController.text.trim())
+                              }
+                          },
                           child: const Icon(
                             Icons.search,
                             color: grey,
